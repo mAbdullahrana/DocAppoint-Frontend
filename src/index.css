@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #2563eb; /* Blue (trust, reliability) */
+  --color-primary-light: #3b82f6; /* Lighter blue */
+  --color-secondary: #10b981; /* Mint/teal (health, freshness) */
+  --color-accent: #f59e42; /* Orange (energy, highlights) */
+  --color-bg: #f9fafb; /* Light background */
+  --color-surface: #ffffff; /* Card/Surface */
+  --color-border: #e5e7eb; /* Light border */
+  --color-danger: #ef4444; /* Red (alerts, errors) */
+  --color-success: #22c55e; /* Green (success) */
+  --color-text: #1e293b; /* Main text */
+  --color-muted: #64748b; /* Muted text */
+}
