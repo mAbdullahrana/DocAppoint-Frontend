@@ -27,6 +27,7 @@ import AdminAppointments from './features/Admin/AdminAppointments'
 import AdminPatients from './features/Admin/AdminPatients'
 import AdminDoctors from './features/Admin/AdminDoctors'
 import TransactionListing from './features/Admin/TransactionListing'
+import OAuth2RedirectHandler from './ui/OAuth2RedirectHandler'
 
 function About() {
   return (
@@ -96,6 +97,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/oauth-callback" element={<OAuth2RedirectHandler />} />
         {/* <Route path="*" element={<PageNotFound />} /> */}
       </Routes>
       <Toaster

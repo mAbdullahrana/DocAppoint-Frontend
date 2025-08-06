@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Button from '../ui/Button'
 import SignupForm from '../features/authentication/SignupForm'
+import GoogleButton from '../ui/GoogleButton'
 
 function Signup() {
   const [type, setType] = useState('patient')
@@ -30,6 +31,8 @@ function Signup() {
           Sign Up as {type.charAt(0).toUpperCase() + type.slice(1)}
         </h2>
         <SignupForm type={type} />
+
+        <GoogleButton signup={true} type={type} />
 
         <p className="text-sm text-center text-muted">
           Already have an account?{' '}
