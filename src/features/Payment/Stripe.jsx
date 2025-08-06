@@ -39,7 +39,7 @@ function Stripe() {
         hasCalledAPI.current = true
 
         const res = await fetch(
-          'http://localhost:3000/api/v1/transactions/create-payment-intent',
+          `${import.meta.env.VITE_API_URL}/api/v1/transactions/create-payment-intent`,
           {
             method: 'POST',
             headers: {

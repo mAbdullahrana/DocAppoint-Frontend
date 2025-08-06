@@ -1,7 +1,7 @@
 export async function getAdminDashboardDataApi(token) {
   try {
     const response = await fetch(
-      'http://localhost:3000/api/v1/admin/dashboard/stats',
+      `${import.meta.env.VITE_API_URL}/api/v1/admin/dashboard/stats`,
       {
         method: 'GET',
         headers: {

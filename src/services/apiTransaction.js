@@ -3,7 +3,7 @@ export async function getTransactionsApi(
   { status, search, page, limit },
 ) {
   const response = await fetch(
-    `http://localhost:3000/api/v1/transactions/get-transactions?status=${status}&search=${search}&page=${page}&limit=${limit}`,
+    `${import.meta.env.VITE_API_URL}/api/v1/transactions/get-transactions?status=${status}&search=${search}&page=${page}&limit=${limit}`,
     {
       method: 'GET',
       headers: {

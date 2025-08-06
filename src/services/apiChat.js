@@ -1,7 +1,7 @@
-const BASE_URL = 'http://localhost:3000/api/v1'
+
 
 export const createChatGroup = async (receiverId, token) => {
-  const response = await fetch(`${BASE_URL}/chat-groups/create-chat-group`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/chat-groups/create-chat-group`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ export const createChatGroup = async (receiverId, token) => {
 }
 
 export const getUserChats = async (token) => {
-  const response = await fetch(`${BASE_URL}/chat-groups/user-chats`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/chat-groups/user-chats`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -35,7 +35,7 @@ export const getUserChats = async (token) => {
 }
 
 export const getChatById = async (chatId, token) => {
-  const response = await fetch(`${BASE_URL}/chat-groups/chat/${chatId}`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/chat-groups/chat/${chatId}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -52,7 +52,7 @@ export const getChatById = async (chatId, token) => {
 
 export const getMessagesByChatGroup = async (chatId, token) => {
   const response = await fetch(
-    `${BASE_URL}/messages/chat-group/${chatId}`,
+    `${import.meta.env.VITE_API_URL}/api/v1/messages/chat-group/${chatId}`,
     {
       method: 'GET',
       headers: {
@@ -70,7 +70,7 @@ export const getMessagesByChatGroup = async (chatId, token) => {
 }
 
 export const createMessage = async (chatGroupId, message, token) => {
-  const response = await fetch(`${BASE_URL}/messages/create-message`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/messages/create-message`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

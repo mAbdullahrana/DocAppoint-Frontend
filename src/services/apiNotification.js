@@ -1,9 +1,9 @@
-import { BACKEND_URL } from "../../constants/environment"
+
 
 
 export async function getNotificationsApi(token) {
   const response = await fetch(
-    `${BACKEND_URL}api/v1/notification/get-notifications`,
+    `${import.meta.env.VITE_API_URL}/api/v1/notification/get-notifications`,
     {
       method: 'GET',
       headers: {

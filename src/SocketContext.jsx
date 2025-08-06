@@ -29,7 +29,7 @@ export function SocketProvider({ children }) {
       return
     }
 
-    socketRef.current = io('http://localhost:3000', {
+    socketRef.current = io(`${import.meta.env.VITE_API_URL}`, {
       transports: ['websocket', 'polling'],
     })
 

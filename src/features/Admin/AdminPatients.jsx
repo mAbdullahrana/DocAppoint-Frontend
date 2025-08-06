@@ -8,7 +8,7 @@ function AdminPatients() {
   const [patients, setPatients] = useState ([])
   useEffect(() => {
     const fetchPatients = async () => {
-      const response = await fetch('http://localhost:3000/api/v1/users/patient', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/patient`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -24,7 +24,7 @@ function AdminPatients() {
     console.log(currentStatus)
     try {
       const response = await fetch(
-        `http://localhost:3000/api/v1/admin/users/${patientId}/toggle-status`,
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/users/${patientId}/toggle-status`,
         {
           method: 'PATCH',
           headers: {

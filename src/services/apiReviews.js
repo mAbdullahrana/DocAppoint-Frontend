@@ -1,6 +1,6 @@
 export async function createReviewApi(review, token) {
   try {
-    const res = await fetch(`http://localhost:3000/api/v1/reviews`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/reviews`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export async function createReviewApi(review, token) {
 
 export async function getReviewApi(appointmentID, token) {
   try {
-    const res = await fetch(`http://localhost:3000/api/v1/reviews/${appointmentID}`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/reviews/${appointmentID}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

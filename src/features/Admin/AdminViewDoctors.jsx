@@ -9,7 +9,7 @@ function AdminViewDoctors({ doctors , setDoctors}) {
     console.log(currentStatus)
     try {
       const response = await fetch(
-        `http://localhost:3000/api/v1/admin/users/${doctorId}/toggle-status`,
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/users/${doctorId}/toggle-status`,
         {
           method: 'PATCH',
           headers: {

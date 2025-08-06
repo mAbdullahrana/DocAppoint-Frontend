@@ -107,7 +107,7 @@ function SingleChat() {
       }
 
       const response = await fetch(
-        'http://localhost:3000/api/v1/messages/create-message',
+        `${import.meta.env.VITE_API_URL}/api/v1/messages/create-message`,
         {
           method: 'POST',
           body: formData,
@@ -249,7 +249,7 @@ function SingleChat() {
                         msg.attachments.map((attachment, index) => (
                           <div key={index}>
                             <img
-                              src={`http://localhost:3000/public/uploads/${attachment.filename}`}
+                              src={`${import.meta.env.VITE_API_URL}/public/uploads/${attachment.filename}`}
                               alt="attachment"
                               className="w-30 h-30 "
                             />

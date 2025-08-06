@@ -32,7 +32,7 @@ function Doctors() {
     createChat(doctorId)
   }
 
-  console.log("*********doctors*********",data)
+  
 
   return (
     <div className="min-h-screen bg-bg py-10 px-4">

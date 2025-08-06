@@ -1,6 +1,6 @@
 export async function updateMeApi(userData, token) {
   try {
-    const res = await fetch('http://localhost:3000/api/v1/users/updateMe', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/updateMe`, {
       method: 'PATCH',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -24,7 +24,7 @@ export async function updateMeApi(userData, token) {
 
 export async function getDoctorsApi(token) {
   try {
-    const res = await fetch(`http://localhost:3000/api/v1/users/doctor`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/doctor`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export async function getDoctorsApi(token) {
 
 export async function getUserByIdApi(id) {
   try {
-    const res = await fetch(`http://localhost:3000/api/v1/users/${id}`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

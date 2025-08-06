@@ -1,6 +1,6 @@
 export async function signupApi(userData) {
   try {
-    const res = await fetch('http://localhost:3000/api/v1/auth/signup', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/auth/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData),
@@ -20,7 +20,7 @@ export async function signupApi(userData) {
 }
 export async function loginApi(userData) {
   try {
-    const res = await fetch('http://localhost:3000/api/v1/auth/login', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData),

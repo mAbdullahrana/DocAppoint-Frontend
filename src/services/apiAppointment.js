@@ -1,6 +1,6 @@
 export async function createAppointmentApi(newAppointment, token) {
   try {
-    const res = await fetch(`http://localhost:3000/api/v1/appointments`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/appointments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export async function createAppointmentApi(newAppointment, token) {
 
 export async function getAppointmentsByUserIDApi(userID, token) {
   try {
-    const res = await fetch(`http://localhost:3000/api/v1/appointments/all`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/appointments/all`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export async function updateAppointmentApi(appointmentID, appointment, token) {
 
   try {
     const res = await fetch(
-      `http://localhost:3000/api/v1/appointments/${appointmentID}`,
+      `${import.meta.env.VITE_API_URL}/api/v1/appointments/${appointmentID}`,
       {
         method: 'PATCH',
         headers: {
@@ -74,7 +74,7 @@ export async function updateAppointmentApi(appointmentID, appointment, token) {
 export async function getAvailableSlotsApi(doctorID, date) {
   try {
     const res = await fetch(
-      `http://localhost:3000/api/v1/appointments/available-slots/${doctorID}/${date}`,
+      `${import.meta.env.VITE_API_URL}/api/v1/appointments/available-slots/${doctorID}/${date}`,
       {
         method: 'GET',
         headers: {
@@ -98,7 +98,7 @@ export async function getAvailableSlotsApi(doctorID, date) {
 
 export async function getAppointmentApi(appointmentID, token) {
   try {
-    const res = await fetch(`http://localhost:3000/api/v1/appointments/${appointmentID}`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/appointments/${appointmentID}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

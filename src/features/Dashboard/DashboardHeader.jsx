@@ -9,7 +9,7 @@ function DashboardHeader() {
     <header className="flex items-center justify-between bg-surface border-b border-border px-8 py-4 shadow-sm">
       <div className="flex items-center gap-4 ">
         <img
-          src={`http://localhost:3000/public/img/users/${user?.profilePicture}`}
+          src={`${import.meta.env.VITE_API_URL}/public/img/users/${user?.profilePicture}`}
           alt="User"
           className="w-10 h-10 rounded-full border border-border object-cover"
         />

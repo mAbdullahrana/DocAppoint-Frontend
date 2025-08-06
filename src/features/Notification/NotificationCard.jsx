@@ -35,7 +35,7 @@ function NotificationCard({
   async function handleNotificationUpdate() {
     try {
       const response = await fetch(
-        `${BACKEND_URL}api/v1/notification/update-notification/${notification._id}`,
+        `${import.meta.env.VITE_API_URL}/api/v1/notification/update-notification/${notification._id}`,
         {
           method: 'PUT',
           headers: {
