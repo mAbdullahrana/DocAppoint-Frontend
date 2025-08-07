@@ -29,6 +29,7 @@ import AdminDoctors from './features/Admin/AdminDoctors'
 import TransactionListing from './features/Admin/TransactionListing'
 import OAuth2RedirectHandler from './ui/OAuth2RedirectHandler'
 import VerifyOtp from './features/authentication/VerifyOtp'
+import ChangePassword from './features/authentication/ChangePassword'
 
 function About() {
   return (
@@ -71,6 +72,7 @@ function App() {
               <Route path="review/:appointmentID" element={<Review />} />
               <Route path="payment" element={<Stripe />} />
               <Route path="payment-success" element={<PaymentSuccess />} />
+              <Route path="change-password" element={<ChangePassword />} />
             </>
           )}
           {user?.role === 'doctor' && (
@@ -80,6 +82,7 @@ function App() {
               <Route path="chat" element={<ChatList />} />
               <Route path="chat/:chatId" element={<SingleChat />} />
               <Route path="appointments" element={<RealTimeAppointments />} />
+              <Route path="change-password" element={<ChangePassword />} />
             </>
           )}
 
@@ -87,10 +90,10 @@ function App() {
             <>
               {console.log('user', user)}
               <Route index element={<AdminDashboard />} />
-              <Route path='appointments' element={<AdminAppointments />} />
-              <Route path='doctors' element={<AdminDoctors />} />
-              <Route path='patients' element={<AdminPatients />} />
-              <Route path='transactions' element={<TransactionListing />} />
+              <Route path="appointments" element={<AdminAppointments />} />
+              <Route path="doctors" element={<AdminDoctors />} />
+              <Route path="patients" element={<AdminPatients />} />
+              <Route path="transactions" element={<TransactionListing />} />
             </>
           )}
         </Route>
@@ -98,6 +101,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/verify-otp" element={<VerifyOtp />} />
+
         <Route path="/signup" element={<Signup />} />
         <Route path="/oauth-callback" element={<OAuth2RedirectHandler />} />
         {/* <Route path="*" element={<PageNotFound />} /> */}

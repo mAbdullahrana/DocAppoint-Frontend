@@ -94,3 +94,30 @@ export async function resendOtpApi(email) {
     throw err
   }
 }
+
+export async function changePasswordApi(data, token) {
+  try {
+    const res = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/v1/auth/change-password`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      },
+    )
+
+    const responseData = await res.json()
+
+    if (!res.ok) {
+      throw new Error(responseData.message || 'Change password failed')
+    }
+
+    return responseData
+  } catch (err) {
+    console.error('Change password API error:', err)
+    throw err
+  }
+}
