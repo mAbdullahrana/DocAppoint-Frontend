@@ -30,6 +30,8 @@ import TransactionListing from './features/Admin/TransactionListing'
 import OAuth2RedirectHandler from './ui/OAuth2RedirectHandler'
 import VerifyOtp from './features/authentication/VerifyOtp'
 import ChangePassword from './features/authentication/ChangePassword'
+import ForgotPassword from './features/authentication/ForgotPassword'
+import ResetPassword from './features/authentication/ResetPassword'
 
 function About() {
   return (
@@ -101,7 +103,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/verify-otp" element={<VerifyOtp />} />
-
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/oauth-callback" element={<OAuth2RedirectHandler />} />
         {/* <Route path="*" element={<PageNotFound />} /> */}

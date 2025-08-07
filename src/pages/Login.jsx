@@ -9,6 +9,12 @@ function Login() {
         <h2 className="text-2xl font-bold text-center text-primary">Login</h2>
         <LoginForm />
 
+        <p className="text-sm text-center text-muted">
+          <Link to="/forgot-password" className="hover:underline text-primary">
+            Forgot Password?
+          </Link>
+        </p>
+
         <GoogleButton />
 
         <p className="text-sm text-center text-muted">

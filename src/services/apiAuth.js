@@ -121,3 +121,51 @@ export async function changePasswordApi(data, token) {
     throw err
   }
 }
+
+export async function forgotPasswordApi(email) {
+  try {
+    const res = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/v1/auth/forgot-password`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      },
+    )
+
+    const responseData = await res.json()
+
+    if (!res.ok) {
+      throw new Error(responseData.message || 'Forgot password failed')
+    }
+
+    return responseData
+  } catch (err) {
+    console.error('Forgot password API error:', err)
+    throw err
+  }
+}
+
+export async function resetPasswordApi(data) {
+  try {
+    const res = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/v1/auth/reset-password/${data.resetPasswordToken}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ newPassword: data.newPassword, confirmNewPassword: data.confirmNewPassword }),
+      },
+    )
+
+    const responseData = await res.json()
+
+    if (!res.ok) {
+      throw new Error(responseData.message || 'Reset password failed')
+    }
+
+    return responseData
+  } catch (err) {
+    console.error('Reset password API error:', err)
+    throw err
+  }
+}
