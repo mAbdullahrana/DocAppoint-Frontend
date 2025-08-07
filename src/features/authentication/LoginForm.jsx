@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { useLogin } from './useLogin'
+import { useNavigate } from 'react-router-dom'
 
 function LoginForm() {
   const {
@@ -9,11 +10,12 @@ function LoginForm() {
     reset,
   } = useForm()
   const { login, isPending } = useLogin()
-
+  const navigate = useNavigate()
   function onSubmit(data) {
     login(data, {
       onSuccess: () => {
         reset()
+        navigate('/verify-otp')
       },
     })
   }

@@ -11,11 +11,33 @@ function SignupForm({ type }) {
   } = useForm()
   const { signUp, isPending } = useSignup()
 
-
   function onSubmit(userData) {
-    if (!userData.email || !userData.name || !userData.password) return
+    console.log('Form data submitted:', userData)
+
+    // Check if all required fields are present
+    if (
+      !userData.email ||
+      !userData.name ||
+      !userData.password ||
+      !userData.passwordConfirm
+    ) {
+      console.log('Missing required fields:', {
+        email: !!userData.email,
+        name: !!userData.name,
+        password: !!userData.password,
+        passwordConfirm: !!userData.passwordConfirm,
+      })
+      return
+    }
+
+    // Check if passwords match
+    if (userData.password !== userData.passwordConfirm) {
+      console.log('Passwords do not match')
+      return
+    }
+
     userData.role = type === 'doctor' ? 'doctor' : 'patient'
-    console.log(userData)
+    console.log('Final user data:', userData)
     signUp(userData)
     reset()
   }

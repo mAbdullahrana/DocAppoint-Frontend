@@ -41,15 +41,20 @@ function ChatList() {
             <h2 className="text-xl font-semibold text-primary mb-2">
               No conversations yet
             </h2>
-            <p className="text-muted mb-4">
-              Start chatting with doctors from the doctors page
-            </p>
-            <button
-              onClick={() => navigate('/dashboard/doctors')}
-              className="px-6 py-2 bg-primary text-surface rounded-lg hover:bg-primary-light transition"
-            >
-              Find Doctors
-            </button>
+            {user?.role !== 'doctor' && (
+              <div>
+                <p className="text-muted mb-4">
+                  Start chatting with doctors from the doctors page
+                </p>
+
+                <button
+                  onClick={() => navigate('/dashboard/doctors')}
+                  className="px-6 py-2 bg-primary text-surface rounded-lg hover:bg-primary-light transition"
+                >
+                  Find Doctors
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <div className="bg-surface border border-border rounded-lg shadow">

@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { signupApi } from '../../services/apiAuth'
 import toast from 'react-hot-toast'
-import { setCredentials } from './authSlice'
+import { setEmail } from './authSlice'
 import { useDispatch } from 'react-redux'
 
 export function useSignup() {
@@ -14,11 +14,11 @@ export function useSignup() {
     error,
   } = useMutation({
     mutationFn: (newUser) => signupApi(newUser),
-    onSuccess: ({newUser , token }) => {
-      console.log(newUser)
-      toast.success('Account created successfully')
-      dispatch(setCredentials({ user: newUser, token }))
-      navigate(`/dashboard`)
+    onSuccess: ({ email }) => {
+      toast.success('Otp sent to your email to verify your account')
+
+      dispatch(setEmail(email))
+      navigate(`/verify-otp`)
     },
     onError: (err) => {
       console.log(err)
