@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useUpdateMe } from './useUpdateMe'
+import CalendarConnect from '../../GoogleCalender/CalenderConnect'
 
 function PatientSettings() {
   const user = useSelector((state) => state.auth.user)
@@ -135,6 +136,13 @@ function PatientSettings() {
         </p>
       </div>
 
+      <div className="bg-white rounded-lg shadow p-6">
+        <h3 className="text-lg font-semibold mb-4">Calendar Integration</h3>
+        
+        {/* {!user?.googleCalendarTokens?.accessToken ? ( */}
+          <CalendarConnect />
+       
+      </div>
       <label className="block mb-1 text-sm font-medium text-text">
         Upload Profile Picture
       </label>

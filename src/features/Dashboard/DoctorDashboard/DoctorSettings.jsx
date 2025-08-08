@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { formatTime, timeToISO } from '../../../utils/helpers'
 import { useUpdateMe } from '../PatientDashboard/useUpdateMe'
+import CalendarConnect from '../../GoogleCalender/CalenderConnect'
 
 function DoctorSettings() {
   const user = useSelector((state) => state.auth.user)
@@ -240,6 +241,7 @@ function DoctorSettings() {
                 : 'Two-factor authentication is disabled. Enable for enhanced security.'}
             </p>
           </div>
+          <CalendarConnect />
 
           <div>
             <label className="block mb-2 text-sm font-medium text-text">

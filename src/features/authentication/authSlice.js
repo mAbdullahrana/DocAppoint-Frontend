@@ -24,6 +24,15 @@ const authSlice = createSlice({
         token: action.payload.token
       }))
     },
+
+    setCalendarSyncEnabled: (state, action) => {
+      console.log("action.payload",action.payload)
+      state.user.calendarSyncEnabled = action.payload
+      localStorage.setItem('credentials', JSON.stringify({
+        user: state.user,
+        token: state.token
+      }))
+    },
     clearCredentials: (state) => {
       state.user = null
       state.token = null
@@ -34,5 +43,5 @@ const authSlice = createSlice({
   },
 })
 
-export const { setCredentials, clearCredentials, setEmail } = authSlice.actions
+export const { setCredentials, clearCredentials, setEmail, setCalendarSyncEnabled } = authSlice.actions
 export default authSlice
